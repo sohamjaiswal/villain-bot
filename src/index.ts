@@ -51,7 +51,9 @@ if (token && prefix) {
                 await message.reply("Here is my invite link! \n https://www.guilded.gg/b/35d4f270-489b-4088-9c9c-dc1e3f986ede")
                 break
             }
-
+            case "rant": {
+                await message.reply("ham good, haters idiots")
+            }
         }
 
     });

@@ -1,6 +1,6 @@
-# how to use
+# How to use
 
-1. Create .env file in project route 
-2. enter token and prefix as follows...
+1. Create .env file in project route...
+2. Enter token and prefix as follows...
     - token = "your token here"
     - prefix = "your prefix here"
