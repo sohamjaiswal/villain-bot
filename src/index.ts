@@ -54,8 +54,10 @@ if (token && prefix) {
             case "rant": {
                 await message.reply("ham good, haters idiots")
             }
+            case "shrug": {
+                await message.reply("¯\\_(ツ)_/¯")
+            }
         }
-
     });
 
     client.login()
