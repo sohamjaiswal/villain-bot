@@ -8,12 +8,12 @@ export const uploadImage = async (imageLoc: string) => {
     console.log(form)
     form.append('file', file)
     const link = await axios.post('https://media.guilded.gg/media/upload',
-    form,
-    {
-        headers: {
-            'content-type': 'multipart/form-data'
-        },
-        params: {'dynamicMediaTypeId': 'ContentMedia'}
-    }
+        form,
+        {
+            headers: {
+                'content-type': 'multipart/form-data'
+            },
+            params: { 'dynamicMediaTypeId': 'ContentMedia' }
+        }
     )
 }
