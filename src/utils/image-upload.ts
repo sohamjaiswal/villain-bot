@@ -2,18 +2,17 @@ import fs from 'fs'
 import FormData from 'form-data'
 import axios from 'axios'
 export const uploadImage = async (imageLoc: string) => {
-    const file: Buffer = fs.readFileSync(imageLoc)
-    console.log(file)
+    const file = fs.createReadStream(imageLoc)
     const form = new FormData()
-    console.log(form)
     form.append('file', file)
-    const link = await axios.post('https://media.guilded.gg/media/upload',
-        form,
-        {
-            headers: {
-                'content-type': 'multipart/form-data'
-            },
-            params: { 'dynamicMediaTypeId': 'ContentMedia' }
-        }
-    )
+    return axios.post('https://media.guilded.gg/media/upload', form, {
+        headers: {
+            "Content-Type": `multipart/form-data; boundary=${form.getBoundary()}`,
+        },
+        params: {dynamicMediaTypeId: 'ContentMedia'},
+    }).then(function (response) {
+        return response.data.url;
+    }).catch(function (error) {
+        return false;
+    });
 }

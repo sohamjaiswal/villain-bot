@@ -15,7 +15,6 @@ const prefix = process.env.prefix
 
 if (token && prefix) {
     const client = new Client({ token: token });
-
     client.on("ready", () => console.log(`Bot is successfully logged in`));
     client.on("messageCreated", async (message) => {
         if (message.createdByBotId) return
@@ -25,16 +24,18 @@ if (token && prefix) {
         if (message.content.startsWith(prefix)) {
             const [commandName, ...args] = message.content.slice(prefix.length).split(" ");
             switch (commandName) {
-                // case "image": {
-                //     uploadImage('2000.jpg').then((res) => res)
-                //     break
-                //     }
-                // case "static": {
-                //     await message.send("https://s3-us-west-2.amazonaws.com/www.guilded.gg/ContentMedia/7ea74857963de8735850cfb51cc9d0d4-Full.webp?w=680&h=933")
-                //     break
-                // }
+                case "image": {
+                    uploadImage('lol.jpg').then(async (upload) => {
+                        if (upload) {
+                            await message.send(upload)
+                        } else {
+                            await message.send('Something broke... D:')
+                        }
+                    })
+                    break
+                    }
                 case "help" : {
-                    await message.send("Yo! \n TooMuchHam made me! \n Ask him about my features as I am in active dev.")
+                    await message.send(`Yo! \n ***TooMuchHam*** made me! \n Ask him about my features as I am in active dev.`)
                     break
                 }
                 case "urban" : {
