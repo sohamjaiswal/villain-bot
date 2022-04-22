@@ -59,6 +59,9 @@ if (token && prefix) {
                 case "shrug": {
                     await message.reply("¯\\_(ツ)_/¯")
                 }
+                case "hi": {
+                    await message.reply("Hi awesome person, hope you enjoy!")
+                }
             }
         }
     });
