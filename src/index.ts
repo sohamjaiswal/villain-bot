@@ -5,6 +5,7 @@ import { Client } from "guilded.js"
 import { DefinitionObject } from "urban-dictionary"
 import { uploadImage } from "./utils/image-upload"
 import { define } from "./utils/urban"
+import { gibQuote } from './utils/quote';
 
 
 dotenv.config()
@@ -61,6 +62,12 @@ if (token && prefix) {
                 }
                 case "hi": {
                     await message.reply("Hi awesome person, hope you enjoy!")
+                }
+                case "quote": {
+                    const quote = (gibQuote(args).then(async (data: any) => { 
+                        const messageData = `Anime: ${data.anime}\nCharacter: ${data.character}\nQuote:\n${data.quote}`
+                        await message.reply(messageData)
+                    }))
                 }
             }
         }

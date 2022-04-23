@@ -4,11 +4,12 @@
     "cstart": "nodemon dist"
   },
   "dependencies": {
+    "@types/node-fetch": "2.6.1",
     "axios": "^0.26.1",
     "dotenv": "^16.0.0",
     "form-data": "^4.0.0",
     "guilded.js": "^0.6.0",
-    "node-fetch": "^3.2.3",
+    "node-fetch": "2.6.1",
     "urban-dictionary": "^3.0.2"
   },
   "devDependencies": {
