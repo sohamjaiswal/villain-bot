@@ -56,18 +56,22 @@ if (token && prefix) {
                 }
                 case "rant": {
                     await message.reply("ham good, haters idiots")
+                    break
                 }
                 case "shrug": {
                     await message.reply("¯\\_(ツ)_/¯")
+                    break
                 }
                 case "hi": {
                     await message.reply("Hi awesome person, hope you enjoy!")
+                    break
                 }
                 case "quote": {
                     const quote = (gibQuote(args).then(async (data: any) => { 
                         const messageData = `Anime: ${data.anime}\nCharacter: ${data.character}\nQuote:\n${data.quote}`
                         await message.reply(messageData)
                     }))
+                    break
                 }
             }
         }
