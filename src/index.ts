@@ -17,7 +17,8 @@ const prefix = process.env.prefix
 if (token && prefix) {
     const client = new Client({ token: token });
     client.on("ready", () => console.log(`Bot is successfully logged in`));
-    client.on("messageCreated", async (message) => {
+    try {
+        client.on("messageCreated", async (message) => {
         if (message.createdByBotId) return
         if (message.content === "test") {
             return message.reply("test indeed");
@@ -76,7 +77,9 @@ if (token && prefix) {
             }
         }
     });
-
+    } catch {
+        console.log('an err occured')
+    }
     client.login()
 } else {
     console.error("Please put token & prefix in a .env file at project root.")
